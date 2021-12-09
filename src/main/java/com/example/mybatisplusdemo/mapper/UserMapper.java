@@ -1,13 +1,14 @@
 package com.example.mybatisplusdemo.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.mybatisplusdemo.entity.User;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-@Mapper
-public interface UserMapper {
-    public List<User> findAllUser();
-    public List<User> findUserByUserId(int userid);
+
+public interface UserMapper extends BaseMapper<User> {
+    default  List<User> findAllUser(){
+        return selectList(null);
+    }
 }
 

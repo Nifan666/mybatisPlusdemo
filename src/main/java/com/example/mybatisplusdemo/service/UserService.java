@@ -16,8 +16,8 @@ public class UserService {
         return userMapper.findAllUser();
     }
 
-    public List<User> findUserByUserId(int userid){
-        return userMapper.findUserByUserId(userid);
+    public User findUserByUserId(int userid){
+        return userMapper.selectById(userid);
     }
 }
 

@@ -1,6 +1,17 @@
 package com.example.mybatisplusdemo.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+
+/**
+ * 对应表名称
+ */
+@TableName("user")
 public class User {
+    /**
+     * 对应主键id
+     */
+    @TableId
     private int userid;
     private String username;
     private String password;

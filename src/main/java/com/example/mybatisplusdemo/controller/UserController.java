@@ -22,7 +22,7 @@ public class UserController {
     }
 
     @RequestMapping("/getUserByUserID/{userid}")
-    public List<User> findUserByUserId(@PathVariable int userid){
+    public User findUserByUserId(@PathVariable int userid){
         return userService.findUserByUserId(userid);
     }
 }
