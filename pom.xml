@@ -14,7 +14,7 @@
     <name>mybatisPlusdemo</name>
     <description>mybatisPlusdemo</description>
     <properties>
-        <druid.version>1.1.14</druid.version>
+        <druid.version>1.2.14</druid.version>
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
@@ -76,6 +76,7 @@
 
     <build>
         <plugins>
+            <!--   创建可执行 jar-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
