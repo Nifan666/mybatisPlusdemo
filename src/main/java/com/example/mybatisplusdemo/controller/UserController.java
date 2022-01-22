@@ -25,6 +25,12 @@ public class UserController {
     public User findUserByUserId(@PathVariable int userid){
         return userService.findUserByUserId(userid);
     }
+
+    @RequestMapping("/batchUpdateErm")
+    public String batchUpdateErm(){
+        userService.batchUpdateErm();
+        return "batchUpdateSuccess";
+    }
 }
 
 
