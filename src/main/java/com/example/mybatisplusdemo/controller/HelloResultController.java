@@ -34,9 +34,28 @@ public class HelloResultController {
         return Result.success(INFO);
     }
 
+    /**
+     * 用于测试 MyExceptionHandle 系统异常处理
+     *
+     * 或者 ResponseResultBodyAdvice 的ExceptionHandler 全局异常处理
+     * @return
+     * @throws Exception
+     */
     @GetMapping("helloError")
     public HashMap<String, Object> helloError() throws Exception {
         throw new Exception("helloError");
+    }
+
+    /**
+     * 用于测试 MyExceptionHandle 自定义异常区分处理
+     * 或者 ResponseResultBodyAdvice 的ExceptionHandler 全局异常处理
+     *
+     * @return
+     * @throws Exception
+     */
+    @GetMapping("resultExceptionTest")
+    public HashMap<String, Object> resultExceptionTest() throws Exception {
+        throw new ResultException();
     }
 
     /**
