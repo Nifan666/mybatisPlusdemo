@@ -3,6 +3,8 @@ package com.example.mybatisplusdemo.controller;
 import com.example.mybatisplusdemo.common.ResponseResultBody;
 import com.example.mybatisplusdemo.common.Result;
 import com.example.mybatisplusdemo.common.exception.ResultException;
+import org.apache.ibatis.mapping.Environment;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +18,9 @@ import java.util.Map;
 public class HelloResultController {
 
     private static final HashMap<String, Object> INFO;
+
+    @Value("${local.ip.addr}")
+    private String ip;
 
     static {
         INFO = new HashMap<String, Object>();
@@ -69,4 +74,21 @@ public class HelloResultController {
     public HashMap<String, Object> helloMyError() throws Exception {
         throw new ResultException();
     }
+
+    /**
+     * 希望读取application.properties的方法二
+     * 通过@Value注解 获取
+     *
+     * 参考文章：https://www.cnblogs.com/lql6/p/11792483.html
+     * @return
+     */
+    @GetMapping("getConfigValueMethod2")
+    public HashMap<String, Object> getConfigValueMethod2() {
+        HashMap map = new HashMap();
+        map.put("ip",ip);
+        return map;
+    }
+
+
+
 }
