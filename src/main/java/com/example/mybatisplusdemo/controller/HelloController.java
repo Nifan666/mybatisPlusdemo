@@ -1,6 +1,8 @@
 package com.example.mybatisplusdemo.controller;
 
 import com.example.mybatisplusdemo.common.Result;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,11 +17,11 @@ import java.util.Map;
  * 我明明返回Object可以了, 为什么要重复劳动, 有没有解决方法,
  * 当然是有的啦, 下面我们开始优化我们的代码吧
  */
-
+//@Slf4j
 @RestController
 @RequestMapping("/hello")
 public class HelloController {
-
+    final static Logger logger = LoggerFactory.getLogger(HelloController.class);
     private static final HashMap<String, Object> INFO;
 
     static {
@@ -30,6 +32,8 @@ public class HelloController {
 
     @GetMapping("/hello")
     public Map<String, Object> hello() {
+        logger.info("Hello World");
+//        log.error("search fail");
         return INFO;
     }
 

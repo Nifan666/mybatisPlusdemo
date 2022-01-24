@@ -33,11 +33,31 @@
             <version>2.2.0</version>
         </dependency>
 
+<!--        json start-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.44</version>
         </dependency>
+<!--        json end-->
+
+        <!-- log start  参考文章：https://blog.csdn.net/n950814abc/article/details/89136800 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.21</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.1.7</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.1.7</version>
+        </dependency>
+        <!-- log end    -->
 
         <!--mybatis start-->
 <!--        <dependency>-->
