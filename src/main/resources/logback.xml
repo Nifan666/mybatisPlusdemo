@@ -90,7 +90,9 @@
         </root>
     </springProfile>
     <springProfile name="dev, test">
-        <logger name="com.example.mybatisplusdemo" level="INFO" />
+<!--        <logger name="com.example.mybatisplusdemo" level="INFO" />-->
+        <!--   撇开level中info限制，sql以debug的日志级别打印   -->
+        <logger name="com.example.mybatisplusdemo.mapper" level="DEBUG"></logger>
         <root>
             <level value="INFO"/>
             <appender-ref ref="CONSOLE"/>
