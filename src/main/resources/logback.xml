@@ -65,12 +65,36 @@
         </encoder>
     </appender>
 
-    <root>
-        <!-- 日志级别 -->
-        <!-- level 标签表示把>=DEBUG级别的日志都输出到控制台-->
-        <level value="INFO"/>
-        <appender-ref ref="CONSOLE"/>
-        <appender-ref ref="INFO"/>
-        <appender-ref ref="ERROR"/>
-    </root>
+<!--    <root>-->
+<!--        &lt;!&ndash; 日志级别 &ndash;&gt;-->
+<!--        &lt;!&ndash; level 标签表示把>=DEBUG级别的日志都输出到控制台&ndash;&gt;-->
+<!--        <level value="INFO"/>-->
+<!--        <appender-ref ref="CONSOLE"/>-->
+<!--        <appender-ref ref="INFO"/>-->
+<!--        <appender-ref ref="ERROR"/>-->
+<!--    </root>-->
+
+
+    <!--
+           设置不同环境的logback配置
+           <springProfile name=""> 指定对应环境
+           与 application.properties内的 spring.profiles.active配置相对应
+           参考文章：https://www.jianshu.com/p/3c2c26dfad73
+    -->
+    <springProfile name="prod">
+        <root>
+            <level value="INFO"/>
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="INFO"/>
+            <appender-ref ref="ERROR"/>
+        </root>
+    </springProfile>
+    <springProfile name="dev, test">
+        <root>
+            <level value="DEBUG"/>
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="INFO"/>
+            <appender-ref ref="ERROR"/>
+        </root>
+    </springProfile>
 </configuration>
