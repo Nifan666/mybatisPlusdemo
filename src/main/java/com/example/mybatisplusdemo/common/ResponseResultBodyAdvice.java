@@ -77,6 +77,9 @@ public class ResponseResultBodyAdvice implements ResponseBodyAdvice<Object> {
     /**
      * 提供对标准Spring MVC异常的处理
      * @ExceptionHandler可以指定父类异常, 用接口进行区分处理，而不是耦合在一起处理。
+     *
+     * @ExceptionHandler 只拦截父类异常为指定类的异常。
+     *
      * @param ex      the target exception
      * @param request the current request
      */
