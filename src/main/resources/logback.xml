@@ -1,7 +1,10 @@
 <?xml version="1.0" ?>
+<!--https://blog.csdn.net/swadian2008/article/details/106501641 认识不同结点的意义-->
 <configuration debug="false">
     <!--控制台日志 -->
+    <!--  ConsoleAppender 表示控制台输出日志  -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoder  对日志输出的内容进行格式化  -->
         <encoder>
             <pattern>
                 <!--日志输出格式-->
@@ -11,14 +14,18 @@
     </appender>
 
     <!-- INFO级别日志,记录INFO级别及比INFO更高级别的日志-->
+    <!--  RollingFileAppender 表示用文件的方式存储日志  -->
     <appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>INFO</level>
         </filter>
+
+        <!-- <append>：如果是 true，日志被追加到文件结尾，如果是 false，清空现存文件，默认是true。       -->
+        <append>true</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>
                 <!--日志引文件路径-->
-                C:\workspace\logs\%d{yyyy-MM-dd}\dp.log
+                ..\logs\%d{yyyy-MM-dd}\dp.log
             </fileNamePattern>
             <!-- 日志保存15天，超过15天自动删除 -->
             <maxHistory>15</maxHistory>
@@ -32,17 +39,20 @@
     </appender>
 
     <!-- ERROR级别日志,只记录Error级别日志 -->
+    <!--  RollingFileAppender 表示用文件的方式存储日志  -->
     <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- 过滤器,只记录ERROR级别的日志,如果日志级别等于配置级别，过滤器会根据onMath 和 onMismatch接收或拒绝日志 -->
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>ERROR</level>
+            <!-- onMatch="ACCEPT" 表示匹配该级别及以上   -->
             <onMatch>ACCEPT</onMatch>
+            <!-- onMismatch="DENY" 表示不匹配该级别以下的   -->
             <onMismatch>DENY</onMismatch>
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>
                 <!--日志文件路径-->
-                C:\workspace\logs\%d{yyyy-MM-dd}\dp.error.log
+                ..\logs\%d{yyyy-MM-dd}\dp.error.log
             </fileNamePattern>
             <!-- 日志保存15天，超过15天自动删除 -->
             <maxHistory>15</maxHistory>
@@ -57,6 +67,7 @@
 
     <root>
         <!-- 日志级别 -->
+        <!-- level 标签表示把>=DEBUG级别的日志都输出到控制台-->
         <level value="INFO"/>
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="INFO"/>
