@@ -90,11 +90,14 @@
         </root>
     </springProfile>
     <springProfile name="dev, test">
+        <logger name="com.example.mybatisplusdemo" level="INFO" />
         <root>
-            <level value="DEBUG"/>
+            <level value="INFO"/>
             <appender-ref ref="CONSOLE"/>
             <appender-ref ref="INFO"/>
             <appender-ref ref="ERROR"/>
         </root>
     </springProfile>
+
+
 </configuration>
