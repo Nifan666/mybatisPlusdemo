@@ -1,4 +1,4 @@
-package com.example.mybatisplusdemo.common;
+package com.example.mybatisplusdemo.common.util;
 
 import lombok.Getter;
 import lombok.ToString;

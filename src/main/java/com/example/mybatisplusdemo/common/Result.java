@@ -1,5 +1,6 @@
 package com.example.mybatisplusdemo.common;
 
+import com.example.mybatisplusdemo.common.util.ResultStatus;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -10,7 +11,12 @@ public class Result<T> {
     private Integer code;
     /** 信息描述 */
     private String message;
-    /** 返回参数 */
+    /**
+     *  返回参数
+     *
+     *  只有success的操作，才会使用到返回参数
+     *  异常or错误处理，是不需要使用返回参数的
+     */
     private T data;
 
     private Result(ResultStatus resultStatus, T data) {
